@@ -1,3 +1,10 @@
+## Scenarion tests
+Run via
+```bash
+python2.7 testcases.py
+```
+
+------
 *Note*:
 In order to set a breakpoint in the code, copy and paste the following statement:
 ```Python
