@@ -1,5 +1,5 @@
 *Note*:
-In order to set a breaking point in the code, copy and paste the following statement:
+In order to set a breakpoint in the code, copy and paste the following statement:
 ```Python
 import code
 code.interact(local=locals())
