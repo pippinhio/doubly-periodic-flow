@@ -11,7 +11,7 @@ if __name__ == '__main__' and __package__ is None:
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
 from core.set_parameters import set_parameters
-from help_routines import run
+from test.help_routines import run
 
 X0 = np.zeros(2,dtype=[('x',float),('y',float),('z',float)])
 X0['x'] = [0.2, 0.8]
