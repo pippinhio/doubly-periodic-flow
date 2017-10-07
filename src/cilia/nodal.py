@@ -87,35 +87,16 @@ def parametrize(t,cilia_config,par):
 
 
 def parametrize_by_hand(t,cilia_config,par):
-#    base_x      = [-3.0, 0.0,-1.5]
-#    base_y      = [ 0.0, 0.0, 2.0]
-#    base_x      = [ 1.0, 2.0, 3.0]
-#    base_y      = [ 1.0, 2.0, 1.0]
-#    phase_shift = [ 0.0, 0.0, 0.0]
-#    phase_shift = np.array([ -120.0,120.0, 0.0])*pi/180.0
-
     base_x      = [ 0.5, 1.5]
     base_y      = [ 0.5, 0.5]
     phase_shift = np.array([ 0.0, 180.0])*pi/180.0
 
-
     ncilia = len(base_x)
-#    ncilia = cilia_config['ncilia']
     npoints = cilia_config['npoints']
     L = cilia_config['L']
     theta = cilia_config['theta']    
     psi = cilia_config['psi']
     T = cilia_config['T']
- 
-#    x_a = par['box']['x_a']
-#    y_a = par['box']['y_a']
-#    L_x = par['box']['L_x']
-#    L_y = par['box']['L_y']
-
-#    lcm = ncilia_x*ncilia_y//gcd(ncilia_x,ncilia_y)
-#    shift_x = np.linspace(0,lcm,ncilia_x,endpoint=False)
-#    shift_y = np.linspace(0,lcm,ncilia_y,endpoint=False)
-#    phase_shift = np.mod(shift_x[:,np.newaxis] + shift_y,lcm)
 
     s = np.linspace(L,0,npoints,endpoint=False)[::-1]
     r = sin(psi)*s
