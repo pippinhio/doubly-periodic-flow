@@ -22,7 +22,7 @@ from src.ode_solve.ode_solve import adams_bashforth
 from src.velocity.velocity_from_forces_exact import velocity_from_forces_exact
 from src.data_structures import make_forces_struct
 
-import params 
+import params
 
 cores = 1
 
@@ -125,7 +125,7 @@ ax.scatter(
 #plot surface
 ax.plot_surface(
     np.array([[-1.0, 1.0],[-1.0, 1.0]]),
-    np.array([[-1.0,-1.0],[ 1.0, 1.0]]),    
+    np.array([[-1.0,-1.0],[ 1.0, 1.0]]),
     np.array([[ 0.0, 0.0],[ 0.0, 0.0]]),
     color = 'grey',alpha = 0.2)
 

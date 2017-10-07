@@ -35,14 +35,14 @@ for regularized in {True,False}:
 
     if regularized:
         ax0.quiver(xx,yy,f1*Phi_eps,f2*Phi_eps,color='red')
-        ax0.set_title('Regularized force field')   
+        ax0.set_title('Regularized force field')
         plt.savefig(params.image_path + 'spread_force_regular.eps')
         plt.savefig(params.image_path + 'spread_force_regular.pdf')
     else:
         ax0.set_xlim([0,1])
         ax0.set_ylim([0,1])
         ax0.quiver(x0,y0,f1*2,f2*2,color='red',scale=10,width=0.02)
-        ax0.set_title('Single point force')   
+        ax0.set_title('Single point force')
         plt.savefig(params.image_path + 'spread_force_singular.eps')
         plt.savefig(params.image_path + 'spread_force_singular.pdf')
 

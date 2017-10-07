@@ -5,9 +5,9 @@ from __future__ import division
 import numpy as np
 
 def adams_bashforth(Var,F,dt,order):
-    # Integrates the ODE Var'=F(Var) for one time step of size dt using 
+    # Integrates the ODE Var'=F(Var) for one time step of size dt using
     # Adams-Bashforth method.  Choices for order are order=1,2,3,4.
-    
+
     (var_x,f_u) = adams_bashforth_1D(Var['x'],F['u'],dt,order)
     (var_y,f_v) = adams_bashforth_1D(Var['y'],F['v'],dt,order)
     (var_z,f_w) = adams_bashforth_1D(Var['z'],F['w'],dt,order)
@@ -15,16 +15,16 @@ def adams_bashforth(Var,F,dt,order):
     Var['x'] = var_x
     Var['y'] = var_y
     Var['z'] = var_z
-        
+
     F.update({'u':f_u,'v':f_v,'w':f_w})
-    
+
     return (Var,F)
 
 
 
 def adams_bashforth_1D(y,f,dt,order):
 
-    if order == 1:    
+    if order == 1:
         # Euler's method
         y = y + dt*f['n']
 #        y += dt*f['n']

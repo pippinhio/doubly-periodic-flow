@@ -15,7 +15,7 @@ from src.velocity.velocity_from_forces import velocity_from_forces
 from src.set_parameters import set_parameters
 from src.data_structures import make_forces_struct
 
-# In order to compute the reference solution without adjusting the plane, 
+# In order to compute the reference solution without adjusting the plane,
 # disable the following lines in velocity_from_forces_serial in
 # src.velocity.velocity_from_forces
 #    u += plane_u
@@ -62,7 +62,7 @@ for ncopies_R in vals:
     diff[i] = np.max(np.sqrt(r2)/sol_max)
     i += 1
     print 'step %g from %g' % ((i),len(vals))
-    
+
 
 print vals
 print diff

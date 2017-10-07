@@ -58,13 +58,13 @@ for eps in epsilons:
     sol_Ewald = velocity_from_forces(forces_Ewald,par_Ewald,cores)
 
     max_Real = max(np.max(sol_Real['u']),np.max(sol_Real['v']),np.max(sol_Real['w']))
- 
+
     r2 = (sol_Real['u']-sol_FFT['u'])**2 + (sol_Real['v']-sol_FFT['v'])**2 + (sol_Real['w']-sol_FFT['w'])**2
     diff_Real_FFT[i] = np.max(np.sqrt(r2)/max_Real)
 
     r2 = (sol_Real['u']-sol_Ewald['u'])**2 + (sol_Real['v']-sol_Ewald['v'])**2 + (sol_Real['w']-sol_Ewald['w'])**2
     diff_Real_Ewald[i] = np.max(np.sqrt(r2)/max_Real)
-    
+
     print 'step %g from %g' % ((i),len(epsilons))
     print time.time() - start
     print 'eps/dx'
@@ -75,7 +75,7 @@ for eps in epsilons:
     print diff_Real_Ewald[i]
 
     i += 1
-    
+
 print 'eps/dx'
 print epsilons/dx
 print 'Real_FFT'

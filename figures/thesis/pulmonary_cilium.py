@@ -29,7 +29,7 @@ cilia_config = {
     'T':1.0,
     'npoints':1000,
     'ncilia_x':1,
-    'ncilia_y':1,    
+    'ncilia_y':1,
     'nsteps':nsteps,
     'dt':1.0/13,
     'beat_pattern':'SandersonSleigh',

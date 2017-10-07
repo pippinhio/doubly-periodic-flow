@@ -34,10 +34,10 @@ class TestSequenceFunctions(unittest.TestCase):
         self.force_type = [('f1',float),('f2',float),('f3',float)]
         self.velo_type = [('u',float),('v',float),('w',float)]
 
-        # When debugging the code, cores should be set to 1 since, 
-        # for instance, code.interact() only works when the code 
+        # When debugging the code, cores should be set to 1 since,
+        # for instance, code.interact() only works when the code
         # is executed in serial.  Also, there is a bug in python 2.7
-        # where a running programm that uses multiple processes can 
+        # where a running programm that uses multiple processes can
         # not be interrupted with Crtl+C.
         self.cores = 4
         self.tol = 1e-14
@@ -51,14 +51,14 @@ class TestSequenceFunctions(unittest.TestCase):
         X0['x'] = rd.rand(self.nforces)
         X0['y'] = rd.rand(self.nforces)
         X0['z'] = 0.99*rd.rand(self.nforces) + 0.01
-        self.X0 = X0 
+        self.X0 = X0
         # forces in [-1,1]^3
         F = np.zeros(self.nforces,dtype=self.force_type)
         F['f1'] = 2*rd.rand(self.nforces) - 1
         F['f2'] = 2*rd.rand(self.nforces) - 1
         F['f3'] = 2*rd.rand(self.nforces) - 1
-        self.F  = F 
-                
+        self.F  = F
+
     # ------------------------------------------------
     # TESTS
     # ------------------------------------------------
@@ -78,16 +78,16 @@ class TestSequenceFunctions(unittest.TestCase):
         res = max_diff(sol_FFT,sol_Ewald)
         print('maximum difference between methods: %e' % res)
         self.assertLess(res,self.tol)
-   
-   
+
+
     def test2_reference_solution_no_images(self):
         print ' '
         print 'test_reference_solution_no_images'
 
         # This time intensive test is run with fewer forces.
         nforces_test = int(np.ceil(self.nforces/2))
-        self.X0 = self.X0[0:nforces_test] 
-        self.F  = self.F[0:nforces_test] 
+        self.X0 = self.X0[0:nforces_test]
+        self.F  = self.F[0:nforces_test]
 
         # Set net force to zero.
         self.F['f1'][-1] = -sum(self.F['f1'][:-1])
@@ -107,15 +107,15 @@ class TestSequenceFunctions(unittest.TestCase):
         res = max_diff(sol_Real,sol_Ewald)
         print('maximum difference between methods: %e' % res)
         self.assertLess(res,1e-04)
-       
-       
+
+
     def test3_no_slip(self):
         print ' '
         print 'test_no_slip'
 
         # Real
         par_Real = set_parameters(method='Real',epsilon='1dx',ncopies_R=0,
-                                  images=True)        
+                                  images=True)
         sol_Real = run(self.X0,self.F,par_Real,self.cores)
         res = max_velo_at_wall(sol_Real)
         print('maximum velocity at wall: %e' % res)
@@ -135,8 +135,8 @@ class TestSequenceFunctions(unittest.TestCase):
         res = max_velo_at_wall(sol_Ewald)
         print('maximum velocity at wall: %e' % res)
         self.assertLess(res,self.tol)
-       
-       
+
+
     def test4_splitting_images(self):
         print ' '
         print 'test_splitting_images'
@@ -161,8 +161,8 @@ class TestSequenceFunctions(unittest.TestCase):
 
         # This time intensive test is run with fewer forces.
         nforces_test = int(np.ceil(self.nforces/2))
-        self.X0 = self.X0[0:nforces_test] 
-        self.F  = self.F[0:nforces_test] 
+        self.X0 = self.X0[0:nforces_test]
+        self.F  = self.F[0:nforces_test]
 
         # Coarser grid.
         par1 = set_parameters(dx=1/64,dy=1/64,
@@ -170,7 +170,7 @@ class TestSequenceFunctions(unittest.TestCase):
                               method='Ewald',epsilon=4/128,xi=8/128,
                               images=True)
         sol1 = run(self.X0,self.F,par1,self.cores)
-        grid1 = par1['grid'] 
+        grid1 = par1['grid']
         u1 = sol1['u']
         v1 = sol1['v']
         w1 = sol1['w']
@@ -179,11 +179,11 @@ class TestSequenceFunctions(unittest.TestCase):
         par2 = set_parameters(dx=1/128,dy=1/128,dz=1/256,
                               method='FFT',epsilon=4/128,
                               images=True)
-        sol2 = run(self.X0,self.F,par2,self.cores)        
+        sol2 = run(self.X0,self.F,par2,self.cores)
         u2 = interp(sol2['u'],grid1,par2)
         v2 = interp(sol2['v'],grid1,par2)
         w2 = interp(sol2['w'],grid1,par2)
-        
+
         diff = sqrt( (u1-u2)**2 + (v1-v2)**2 + (w1-w2)**2 )
         res = np.amax(diff)
         print('maximum difference on coarse grid: %e' % res)
@@ -193,7 +193,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test6_non_square_domain(self):
         print ' '
         print 'test_non_square_domain'
-    
+
         x_a = 1.0
         x_b = 2.5
         y_a = 0.5
@@ -201,18 +201,18 @@ class TestSequenceFunctions(unittest.TestCase):
         z_a = 0.0
         z_b = 0.8
         domain = [x_a,x_b,y_a,y_b,z_a,z_b]
-    
+
         rd.seed(2)
         X0 = np.zeros(self.nforces,dtype=self.point_type)
         X0['x'] = (x_b-x_a)*rd.rand(self.nforces) + x_a
         X0['y'] = (y_b-y_a)*rd.rand(self.nforces) + y_a
         X0['z'] = (z_b-z_a)*rd.rand(self.nforces) + z_a
-       
+
         F = np.zeros(self.nforces,dtype=self.force_type)
         F['f1'] = 2*rd.rand(self.nforces) - 1
         F['f2'] = 2*rd.rand(self.nforces) - 1
         F['f3'] = 2*rd.rand(self.nforces) - 1
-        
+
         # FFT
         par_FFT = set_parameters(domain=domain,
                                  method='FFT',epsilon='4dx',
@@ -233,7 +233,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test7_solve_for_forces(self):
         print ' '
         print 'solve_for_forces'
-        
+
         rd.seed(3)
 
         U = np.zeros(self.nforces,dtype=self.velo_type)
@@ -253,7 +253,7 @@ class TestSequenceFunctions(unittest.TestCase):
         ve = U['v']
         we = U['w']
         diff = sqrt( (ue-up)**2 + (ve-vp)**2 + (we-wp)**2 )
-        res = np.amax(diff) # use real L2 difference 
+        res = np.amax(diff) # use real L2 difference
         print('maximum difference in computed velocity: %e' % res)
         self.assertLess(res,self.tol)
 
@@ -261,7 +261,7 @@ class TestSequenceFunctions(unittest.TestCase):
     def test8_solve_for_forces_planar(self):
         print ' '
         print 'solve_for_forces_planar'
-        
+
         rd.seed(3)
 
         U = np.zeros(self.nforces,dtype=self.velo_type)
@@ -270,7 +270,7 @@ class TestSequenceFunctions(unittest.TestCase):
         U['w'] = 2*rd.rand(self.nforces) - 1
 
         self.X0['y'] = 0.5
-        
+
         par = set_parameters(method='Ewald',epsilon='1dx',xi='4dx',images=True)
         F = forces_from_velocity(self.X0,U,par,self.cores)
         par = set_parameters(method='Ewald',epsilon='1dx',xi='4dx',images=True,
@@ -283,7 +283,7 @@ class TestSequenceFunctions(unittest.TestCase):
         ve = U['v']
         we = U['w']
         diff = sqrt( (ue-up)**2 + (ve-vp)**2 + (we-wp)**2 )
-        res = np.amax(diff) # use real L2 difference 
+        res = np.amax(diff) # use real L2 difference
         print('maximum difference in computed velocity: %e' % res)
         self.assertLess(res,self.tol)
 

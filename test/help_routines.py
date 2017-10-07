@@ -36,7 +36,7 @@ def max_velo_at_wall(sol):
     v = sol['v']
     w = sol['w']
     r = sqrt( u**2 + v**2 + w**2 )
-    res = np.amax(r[:,:,0])     
+    res = np.amax(r[:,:,0])
     return res
 
 
@@ -44,6 +44,6 @@ def velo_at_wall(sol,par):
     u0 = sol['u'][:,:,0]
     v0 = sol['v'][:,:,0]
     w0 = sol['w'][:,:,0]
-    
+
     r = sqrt( u0**2 + v0**2 + w0**2)
     print('Maximum velocity at wall: %e' % np.amax(r))

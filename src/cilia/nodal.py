@@ -18,10 +18,10 @@ def parametrize(t,cilia_config,par):
     ncilia = ncilia_x*ncilia_y
     npoints = cilia_config['npoints']
     L = cilia_config['L']
-    theta = cilia_config['theta']    
+    theta = cilia_config['theta']
     psi = cilia_config['psi']
     T = cilia_config['T']
- 
+
     x_a = par['box']['x_a']
     y_a = par['box']['y_a']
     L_x = par['box']['L_x']
@@ -33,9 +33,9 @@ def parametrize(t,cilia_config,par):
     phase_shift = np.mod(shift_x[:,np.newaxis] + shift_y,lcm)
 
     ds = 1.0/npoints
-    s = np.linspace(ds,1.0,npoints,endpoint=True)    
+    s = np.linspace(ds,1.0,npoints,endpoint=True)
     #Use the following for non-uniform spacing
-#    s = np.linspace(ds/2,1.0-ds/2,npoints,endpoint=True)    
+#    s = np.linspace(ds/2,1.0-ds/2,npoints,endpoint=True)
 #    a = 0.5 # use a = 0 for uniform
 #    s = (1-a)*s + a* (0.5 - 0.5*cos(s*pi))
 
@@ -55,13 +55,13 @@ def parametrize(t,cilia_config,par):
             z = r/tan(psi)
             x_dot = -2*pi/T*r*sin(2*pi*(t/T+phase_shift[i,j]/lcm))
             y_dot =  2*pi/T*r*cos(2*pi*(t/T+phase_shift[i,j]/lcm))
-                    
+
             X0[i,j,:]['x'] = x
-            X0[i,j,:]['y'] = y*cos(theta) + z*sin(theta)    
+            X0[i,j,:]['y'] = y*cos(theta) + z*sin(theta)
             X0[i,j,:]['z'] = -y*sin(theta) + z*cos(theta)
-            
+
             U[i,j,:]['u'] = x_dot
-            U[i,j,:]['v'] = y_dot*cos(theta)    
+            U[i,j,:]['v'] = y_dot*cos(theta)
             U[i,j,:]['w'] = -y_dot*sin(theta)
 
             # Shift cilium to the correct location.
@@ -81,7 +81,7 @@ def parametrize(t,cilia_config,par):
     U_vec['u'] = U['u'].reshape(-1)
     U_vec['v'] = U['v'].reshape(-1)
     U_vec['w'] = U['w'].reshape(-1)
-    
+
     return (X0_vec,U_vec,phase_shift)
 
 
@@ -94,7 +94,7 @@ def parametrize_by_hand(t,cilia_config,par):
     ncilia = len(base_x)
     npoints = cilia_config['npoints']
     L = cilia_config['L']
-    theta = cilia_config['theta']    
+    theta = cilia_config['theta']
     psi = cilia_config['psi']
     T = cilia_config['T']
 
@@ -112,13 +112,13 @@ def parametrize_by_hand(t,cilia_config,par):
         z = r/tan(psi)
         x_dot = -2*pi/T*r*sin(2*pi*t/T+phase_shift[i])
         y_dot =  2*pi/T*r*cos(2*pi*t/T+phase_shift[i])
-                
+
         X0[i,:]['x'] = x
-        X0[i,:]['y'] = y*cos(theta) + z*sin(theta)    
+        X0[i,:]['y'] = y*cos(theta) + z*sin(theta)
         X0[i,:]['z'] = -y*sin(theta) + z*cos(theta)
-        
+
         U[i,:]['u'] = x_dot
-        U[i,:]['v'] = y_dot*cos(theta)    
+        U[i,:]['v'] = y_dot*cos(theta)
         U[i,:]['w'] = -y_dot*sin(theta)
 
         # Shift cilium to the correct location.
@@ -138,6 +138,6 @@ def parametrize_by_hand(t,cilia_config,par):
     U_vec['u'] = U['u'].reshape(-1)
     U_vec['v'] = U['v'].reshape(-1)
     U_vec['w'] = U['w'].reshape(-1)
-    
+
     return (X0_vec,U_vec,phase_shift)
 

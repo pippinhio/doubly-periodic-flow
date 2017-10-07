@@ -53,8 +53,8 @@ for case in {'free_no-img','free_img','dp_no-img','dp_img'}:
     sol = velocity_from_forces(forces,par,cores)
 
     y = par['grid']['y_vec']
-    xx = np.squeeze(par['grid']['x'][:,y==0,:]) 
-    zz = np.squeeze(par['grid']['z'][:,y==0,:]) 
+    xx = np.squeeze(par['grid']['x'][:,y==0,:])
+    zz = np.squeeze(par['grid']['z'][:,y==0,:])
     u = np.squeeze(sol['u'][:,y==0,:])
     w = np.squeeze(sol['w'][:,y==0,:])
 
@@ -68,15 +68,15 @@ for case in {'free_no-img','free_img','dp_no-img','dp_img'}:
     ax0.set_ylabel(r'$z$',fontsize=params.fontsize_latex)
 
     if case == 'free_no-img':
-            ax0.set_title('Stokeslet in free space')   
+            ax0.set_title('Stokeslet in free space')
     elif case == 'free_img':
-            ax0.set_title('Stokeslet near a wall')   
+            ax0.set_title('Stokeslet near a wall')
     elif case == 'dp_no-img':
-            ax0.set_title('Doubly-periodic Stokeslet in free space')   
+            ax0.set_title('Doubly-periodic Stokeslet in free space')
     elif case == 'dp_img':
-            ax0.set_title('Doubly-periodic Stokeslet near a wall')   
+            ax0.set_title('Doubly-periodic Stokeslet near a wall')
     matplotlib.rcParams.update({'font.size': params.fontsize})
-            
+
     plt.savefig(params.image_path + 'stokeslet_%s.eps' % case)
     plt.savefig(params.image_path + 'stokeslet_%s.pdf' % case)
 

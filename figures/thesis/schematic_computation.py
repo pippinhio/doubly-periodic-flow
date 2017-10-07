@@ -22,9 +22,9 @@ za = 1.2
 for i in range(len(grid_x)-1):
     for j in range(len(grid_y)):
         ax.plot([grid_x[i], grid_x[i+1]], [grid_y[j],grid_y[j]],zs=[za,za],color='black')
-        
+
 for i in range(len(grid_x)):
-    for j in range(len(grid_y)-1):        
+    for j in range(len(grid_y)-1):
         ax.plot([grid_x[i], grid_x[i]], [grid_y[j],grid_y[j+1]],zs=[za,za],color='black')
 
 class Arrow3D(FancyArrowPatch):
@@ -78,6 +78,6 @@ x2, y2, _ = proj3d.proj_transform(0.0-0.08,0.0,0.75, ax.get_proj())
 ax.annotate(r'$z$',xy=(x2,y2),xytext=(x2,y2),fontsize=params.fontsize_latex)
 
 plt.savefig(params.image_path + 'schematic_computation.eps')
-plt.savefig(params.image_path + 'schematic_computation.pdf')        
+plt.savefig(params.image_path + 'schematic_computation.pdf')
 plt.show()
 

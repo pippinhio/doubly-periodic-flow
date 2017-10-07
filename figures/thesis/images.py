@@ -12,8 +12,8 @@ import matplotlib.pyplot as plt
 
 import params
 
-#element_type = 'singular' 
-element_type = 'regular' 
+#element_type = 'singular'
+element_type = 'regular'
 images = True
 #images = False #When trying to plot just one Stokeslet using the module
 #   stokeslets.py is now the prefered way.
@@ -100,10 +100,10 @@ w = w_St_s + w_St + w_Do + w_Dp
 
 if element_type == 'regular':
     # Rotlet
-    u_Ro1 = 2*h*(-Gs_prime/r)*zz_tilde*q1               
+    u_Ro1 = 2*h*(-Gs_prime/r)*zz_tilde*q1
     w_Ro1 = 2*h*(-Gs_prime/r)*(-xx_tilde*q1)
 
-    u_Ro2 = 2*h*( Gd_prime/r)*zz_tilde*q1               
+    u_Ro2 = 2*h*( Gd_prime/r)*zz_tilde*q1
     w_Ro2 = 2*h*( Gd_prime/r)*(-xx_tilde*q1)
 
     u += u_Ro1 + u_Ro2
@@ -184,12 +184,12 @@ else:
     if wall:
         ax0.quiver(xx[zz>=0],zz[zz>=0],u[zz>=0],w[zz>=0],color='black')
         ax0.quiver(xx[zz<0] ,zz[zz<0] ,u[zz<0] ,w[zz<0] ,color='white')
-        ax0.set_title('Stokeslet near a wall')   
+        ax0.set_title('Stokeslet near a wall')
     else:
         ax0.quiver(xx[zz>=0],zz[zz>=0],u_St_s[zz>=0],w_St_s[zz>=0],color='black')
         ax0.quiver(xx[zz<0] ,zz[zz<0] ,u_St_s[zz<0] ,w_St_s[zz<0] ,color='white')
-        ax0.set_title('Stokeslet in free space')   
-    
+        ax0.set_title('Stokeslet in free space')
+
     ax0.quiver(x0_s,z0_s, f1,f3,color='red',scale=10,width=0.02)
     #ax0.axhline(y=0.0,linestyle='dashed',color='black')
     ax0.set_ylim([-0.1,2.0])

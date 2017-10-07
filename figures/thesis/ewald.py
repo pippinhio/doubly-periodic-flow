@@ -20,12 +20,12 @@ from src.data_structures import make_forces_struct
 
 import params
 # --------------------------------------
-# NOTE: 
+# NOTE:
 # In order for this routine to work, in the module velocity_from_forces
 # from src.velocity.velocity_from_forces replace the line
 #u = u_erf + u_erfc
 # with this
-#u = par['erf']*u_erf + par['erfc']*u_erfc 
+#u = par['erf']*u_erf + par['erfc']*u_erfc
 # --------------------------------------
 
 
@@ -75,7 +75,7 @@ for xi in {0.2,0.3,0.4}:
     matplotlib.rcParams.update({'font.size': params.fontsize})
     ax0.set_xlabel(r'$x$',fontsize=params.fontsize_latex)
     ax0.set_ylabel(r'$u$',fontsize=params.fontsize_latex)
-    
+
     ax0.annotate(r'$\xi=%g$'%xi, xy=(0.02, 2.2), xytext=(0.02, 2.2))
     file_name = ('ewald_%g'%xi).replace('.','_')
     plt.savefig(params.image_path + file_name + '.pdf')
