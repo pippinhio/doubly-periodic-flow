@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 if __name__ == '__main__' and __package__ is None:
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
-from core.set_parameters import set_parameters
+from src.set_parameters import set_parameters
 from test.help_routines import run
 
 X0 = np.zeros(2,dtype=[('x',float),('y',float),('z',float)])
@@ -24,7 +24,7 @@ F['f2'] = [0.0, 0.0]
 F['f3'] = [0.5,-0.5]
 
 #For more details about the input parameters see also the docstring in the 
-#module core.set_parameters.  Commenting out a line will use the default value. 
+#module src.set_parameters.  Commenting out a line will use the default value. 
 #In particualar, set_parameters can be called without any input values.
 par = set_parameters( 
     domain=[0.0,1.0,0.0,1.0,0.0,1.0],#compuational domain: [x_a,x_b,y_a,y_b,z_a,z_b]
@@ -47,7 +47,7 @@ yy = par['grid']['y']
 zz = par['grid']['z']
 ax.quiver(
     xx[yy==0],#This works only if y=0 lies on the grid. Otherwise use interp
-    zz[yy==0],#from core.evaluation
+    zz[yy==0],#from src.evaluation
     U['u'][yy==0],
     U['w'][yy==0])
 ax.set_xlabel(r'$x$',fontsize=18)

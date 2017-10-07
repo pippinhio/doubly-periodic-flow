@@ -8,9 +8,9 @@ import numpy as np
 from numpy import linalg as LA
 
 from velocity_from_forces import velocity_from_forces
-from core.evaluation import interp
-from core.grid import make_grid
-from core.data_structures import make_forces_struct
+from src.evaluation import interp
+from src.grid import make_grid
+from src.data_structures import make_forces_struct
 
 def forces_from_velocity(X0,U,par,cores):
     # In the z-direction, the given boundaries of the computational

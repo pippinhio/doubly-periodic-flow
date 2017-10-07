@@ -6,7 +6,7 @@ import time
 import numpy as np
 from numpy import linalg as LA
 
-from core.data_structures import make_forces_struct
+from src.data_structures import make_forces_struct
 from velocity_from_forces_exact import velocity_from_forces_exact
 
 def forces_from_velocity_exact(X0,U,par,cores):

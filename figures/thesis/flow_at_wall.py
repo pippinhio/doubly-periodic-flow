@@ -11,9 +11,9 @@ from numpy import random as rd
 if __name__ == '__main__' and __package__ is None:
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
-from core.velocity.velocity_from_forces import velocity_from_forces
-from core.set_parameters import set_parameters
-from core.data_structures import make_forces_struct
+from src.velocity.velocity_from_forces import velocity_from_forces
+from src.set_parameters import set_parameters
+from src.data_structures import make_forces_struct
 
 import params
 

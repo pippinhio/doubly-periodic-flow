@@ -12,10 +12,10 @@ import unittest
 if __name__ == '__main__' and __package__ is None:
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.abspath(__file__))))
-from core.evaluation import interp
-from core.set_parameters import set_parameters
+from src.evaluation import interp
+from src.set_parameters import set_parameters
 from help_routines import run, max_velo_at_wall, max_diff
-from core.velocity.forces_from_velocity import forces_from_velocity
+from src.velocity.forces_from_velocity import forces_from_velocity
 
 __author__ = "Franz Hoffmann"
 __copyright__ = "Copyright 2014, Franz Hoffmann"

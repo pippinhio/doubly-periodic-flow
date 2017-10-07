@@ -16,11 +16,11 @@ from mpl_toolkits.mplot3d import proj3d
 if __name__ == '__main__' and __package__ is None:
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
-from core.grid import ndgrid
-from core.evaluation import interp, map_into_main_domain
-from core.ode_solve.ode_solve import adams_bashforth
-from core.velocity.velocity_from_forces_exact import velocity_from_forces_exact
-from core.data_structures import make_forces_struct
+from src.grid import ndgrid
+from src.evaluation import interp, map_into_main_domain
+from src.ode_solve.ode_solve import adams_bashforth
+from src.velocity.velocity_from_forces_exact import velocity_from_forces_exact
+from src.data_structures import make_forces_struct
 
 import params 
 

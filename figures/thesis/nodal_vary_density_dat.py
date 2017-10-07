@@ -14,15 +14,15 @@ from numpy import sqrt as sqrt
 if __name__ == '__main__' and __package__ is None:
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
-from core.velocity.forces_from_velocity import forces_from_velocity
-from core.velocity.forces_from_velocity_exact import forces_from_velocity_exact
-from core.velocity.velocity_from_forces import velocity_from_forces
-from core.set_parameters import set_parameters
-#from core.data_structures import make_forces_struct
+from src.velocity.forces_from_velocity import forces_from_velocity
+from src.velocity.forces_from_velocity_exact import forces_from_velocity_exact
+from src.velocity.velocity_from_forces import velocity_from_forces
+from src.set_parameters import set_parameters
+#from src.data_structures import make_forces_struct
 
 beat_pattern = 'nodal'
 if beat_pattern == 'nodal':
-    from core.cilia.nodal import parametrize
+    from src.cilia.nodal import parametrize
 
 ''' All files are saved in the temporary directory
      results_tmp.  Files that one intends to keep
