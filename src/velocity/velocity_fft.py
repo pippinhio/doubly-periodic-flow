@@ -274,6 +274,11 @@ def greens_function(blob_type,X0,par):
     green = {'Phi_hat':Phi_hat,'G_hat':G_hat,'G_hat_prime':G_hat_prime,
         'B_hat':B_hat,'B_hat_prime':B_hat_prime,'k2':kk2,'m2':mm2,'c2':c2,
         'Phi0_hat':Phi0_hat,'G0_hat':G0_hat,'G0_hat_prime':G0_hat_prime}
+
+    #TODO: Remove once the above TODO is fixed
+    np.seterr(invalid='ignore')
+    np.seterr(over='ignore')
+
     return green
 
 
