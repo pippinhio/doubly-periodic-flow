@@ -25,6 +25,8 @@ from src.data_structures import make_forces_struct
 
 import params
 
+os.system("mkdir -p " + params.image_path)
+
 fig = plt.figure()
 ax = fig.gca(projection='3d')
 #ax.set_aspect("equal")

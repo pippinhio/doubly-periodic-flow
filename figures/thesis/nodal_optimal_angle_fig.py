@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 
+import os
+
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
 import params
+
+os.system("mkdir -p " + params.image_path)
 
 theta = np.array([0,5,10,15,20,25,30,35,40])
 

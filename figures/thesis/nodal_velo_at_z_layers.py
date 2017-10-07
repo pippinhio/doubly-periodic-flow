@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import os
 import pickle
 
 import numpy as np
@@ -7,6 +8,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 import params
+
+os.system("mkdir -p " + params.image_path)
 
 directory = 'data/tilt20_cone20/'
 disp = pickle.load(open(directory + 'disp_final.p','rb'))

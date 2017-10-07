@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from __future__ import division
+import os
 
 import numpy as np
 
@@ -12,6 +13,7 @@ from mpl_toolkits.mplot3d import proj3d
 
 import params
 
+os.system("mkdir -p " + params.image_path)
 
 fig1 = plt.figure()
 ax = fig1.add_subplot(111,projection='3d')

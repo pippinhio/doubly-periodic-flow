@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from __future__ import division
+import os
 
 import numpy as np
 from numpy import pi
@@ -19,6 +20,8 @@ from src.cilia.planar import parametrize
 from src.set_parameters import set_parameters
 
 import params
+
+os.system("mkdir -p " + params.image_path)
 
 fig = plt.figure()
 ax = fig.add_subplot(111)

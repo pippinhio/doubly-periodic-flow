@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from __future__ import division
+import os
 
 import numpy as np
 from numpy import pi as pi
@@ -12,6 +13,7 @@ import matplotlib.pyplot as plt
 
 import params
 
+os.system("mkdir -p " + params.image_path)
 
 x = np.linspace( 0.0,1.0,23,endpoint=True)
 y = np.linspace( 0.0,1.0,23,endpoint=True)

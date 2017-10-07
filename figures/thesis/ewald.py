@@ -28,6 +28,7 @@ import params
 #u = par['erf']*u_erf + par['erfc']*u_erfc
 # --------------------------------------
 
+os.system("mkdir -p " + params.image_path)
 
 cores = 4
 

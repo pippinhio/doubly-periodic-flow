@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 from __future__ import division
+import os
 
 import numpy as np
 from numpy import pi as pi
@@ -11,6 +12,8 @@ import matplotlib
 import matplotlib.pyplot as plt
 
 import params
+
+os.system("mkdir -p " + params.image_path)
 
 #element_type = 'singular'
 element_type = 'regular'

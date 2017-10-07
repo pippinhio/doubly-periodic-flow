@@ -1,10 +1,14 @@
 #!/usr/bin/env python
 
+import os
+
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 
 import params
+
+os.system("mkdir -p " + params.image_path)
 
 #L_x = L_y
 #Netflow, n = 10

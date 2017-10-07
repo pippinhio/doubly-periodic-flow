@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 
 from __future__ import division
+import os
 
 import matplotlib
 import matplotlib.pyplot as plt
 
 import params
+
+os.system("mkdir -p " + params.image_path)
 
 eps_over_dx = [0.1, 0.5, 1.0, 1.5, 2.0, 2.2, 3.0, 4.0]
 diff_Real_FFT = [

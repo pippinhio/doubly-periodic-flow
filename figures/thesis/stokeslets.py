@@ -1,12 +1,9 @@
 #!/usr/bin/env python
 
 from __future__ import division
-#import time
 import os
-#import pickle
 
 import numpy as np
-#from numpy import pi as pi
 import matplotlib
 import matplotlib.pyplot as plt
 
@@ -20,6 +17,8 @@ from src.velocity.velocity_from_forces import velocity_from_forces
 from src.set_parameters import set_parameters
 from src.data_structures import make_forces_struct
 import params
+
+os.system("mkdir -p " + params.image_path)
 
 cores = 4
 
