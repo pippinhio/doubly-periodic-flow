@@ -7,7 +7,7 @@ Some computations were quite intensive. I ran those on the [Sphynx cluster](http
 
 1. Copy the files you want to run from your local machine to Sphynx, e.g. 
 ```bash
-scp -r ./Documents/python/code/ fhoffma@sphynx.ccs.tulane.edu:/scratch03/fhoffma
+scp -r ./Documents/python/ fhoffma@sphynx.ccs.tulane.edu:/scratch03/fhoffma/python
 ```
 
 2. Then run a submission script like this one here:
