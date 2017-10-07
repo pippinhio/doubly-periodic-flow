@@ -1,7 +1,20 @@
-# doubly-periodic-flow
+# A Numerical Method for Doubly-Periodic Stokes Flow in 3D with and without a Bounding Plane
+
+In my PhD thesis ([add link]) I derived a fast numerical method to compute Stokes flow in 3D that is periodic in two directions.
+Here is my implementation.
+
+* If you want to recreate the data and figures from my thesis, have a look at the [figures/thesis](figures/thesis) folder.
+
+* If you want to play with the method I derived, have a look at [example.py](example.py) and the comments therein. 
+To run, simply type 
+```bash
+python2.7 example.py
+```
+With the current settings this will create the following flow field:
+[add pic]
 
 
-## Running on the Sphynx cluster
+### Running on the Sphynx cluster
 
 Some computations were quite intensive. I ran those on the [Sphynx cluster](https://www2.tulane.edu/sse/ccs/computing/hardware.cfm) of Tulane University's Center for Computational Science. Here's how:
 
@@ -29,3 +42,4 @@ pwd
 
 echo End Job
 ```
+
