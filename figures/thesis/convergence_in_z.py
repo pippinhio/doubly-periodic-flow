@@ -18,6 +18,8 @@ from src.data_structures import make_forces_struct
 
 import params
 
+os.system("mkdir -p " + params.image_path)
+
 cores = 4
 
 X0 = np.zeros(1,dtype=[('x',float),('y',float),('z',float)])

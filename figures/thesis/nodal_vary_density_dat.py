@@ -18,7 +18,6 @@ from src.velocity.forces_from_velocity import forces_from_velocity
 from src.velocity.forces_from_velocity_exact import forces_from_velocity_exact
 from src.velocity.velocity_from_forces import velocity_from_forces
 from src.set_parameters import set_parameters
-#from src.data_structures import make_forces_struct
 
 beat_pattern = 'nodal'
 if beat_pattern == 'nodal':

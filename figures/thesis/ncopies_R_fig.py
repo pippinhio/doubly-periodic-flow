@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 
 import params
 
+os.system("mkdir -p " + params.image_path)
+
 vals = np.array([   1,  2,  3,  4,  5, 10, 20, 40])
 diff_plane = np.array([
     2.11544077e-02,
