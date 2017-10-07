@@ -290,11 +290,3 @@ class TestSequenceFunctions(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-    
-#    In order to set a breaking point in the code, copy and paste
-#    the following statement.  Note: This works in Python2.7 only
-#    when the code is run in serial. That is, you need to set
-#    self.cores to 1.     
-#    import code
-#    code.interact(local=locals())  
-
