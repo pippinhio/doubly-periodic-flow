@@ -43,7 +43,7 @@ cilia_config = {
     'T':T,
     'npoints':npoints,
     'ncilia_x':ncilia_x,
-    'ncilia_y':ncilia_y,    
+    'ncilia_y':ncilia_y,
     'nsteps':nsteps,
     'dt':dt,
     'beat_pattern':beat_pattern,

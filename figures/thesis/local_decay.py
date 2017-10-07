@@ -66,7 +66,7 @@ for i, r_cutoff in enumerate(xi*np.array([1,2,4,6,8])):
 
     r2 = (sol_Ewald['u']-sol_FFT['u'])**2 + (sol_Ewald['v']-sol_FFT['v'])**2 + (sol_Ewald['w']-sol_FFT['w'])**2
     diff_Ewald_FFT.append(np.max(np.sqrt(r2)/max_FFT))
-    
+
     print 'step %g' % (i)
     print 'r_cutoff/dx'
     print r_cutoff/dx

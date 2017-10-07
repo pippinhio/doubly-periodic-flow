@@ -19,7 +19,7 @@ diff_Real_FFT = [
     4.67971373e-06
     ]
 
-diff_Real_Ewald = [  
+diff_Real_Ewald = [
     6.13139046e-07,
     1.17428635e-06,
     1.78016977e-06,

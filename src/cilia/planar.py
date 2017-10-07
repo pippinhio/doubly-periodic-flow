@@ -22,11 +22,11 @@ def parametrize(t,cilia_config,par):
 
     npoints = cilia_config['npoints']
     s = np.linspace(1,0,npoints,endpoint=False)
-    
+
     ncilia = cilia_config['ncilia']
     X0 = np.zeros(npoints,dtype=[('x',float),('y',float),('z',float)])
     U = np.zeros(npoints,dtype=[('u',float),('v',float),('w',float)])
-    
+
     X0 = np.tile(X0,(ncilia,1))
     U = np.tile(U,(ncilia,1))
 
@@ -55,18 +55,18 @@ def parametrize(t,cilia_config,par):
         # Fit cilium into main domain.
         X0[j]['x'] = (X0[j]['x'] - x_a) % L_x + x_a
 #    import code
-#    code.interact(local=locals())  
+#    code.interact(local=locals())
     X0 = X0.reshape(ncilia*npoints)
     U = U.reshape(ncilia*npoints)
-    
+
     return (X0,U)
 
 
 def set_fourier_coefficients(beat_pattern,s):
-    
+
     if beat_pattern == 'Sleigh':
-        # Fourier least squares coefficinets from Sleigh (1977): 
-        # The  nature and action of respiratory tract cilia. Respiratory 
+        # Fourier least squares coefficinets from Sleigh (1977):
+        # The  nature and action of respiratory tract cilia. Respiratory
         # Defence Mechanisms. pp. 247-288.
         A_x = np.array([
             [-0.654, 0.787, 0.202],
@@ -103,9 +103,9 @@ def set_fourier_coefficients(beat_pattern,s):
             [-0.017, 0.067,-0.055]
         ])
     elif beat_pattern == 'SandersonSleigh':
-        # Fourier least squares coefficinets from  Sanderson and Sleigh (1981): 
-        # Ciliary activity and cultured rabbit epithelium: beat pattern and 
-        # mechatrony. J.Cell Sci. 47, 331. 
+        # Fourier least squares coefficinets from  Sanderson and Sleigh (1981):
+        # Ciliary activity and cultured rabbit epithelium: beat pattern and
+        # mechatrony. J.Cell Sci. 47, 331.
         A_x = np.array([
             [-0.449,-0.072, 0.658],
             [ 0.130,-1.502, 0.793],
@@ -132,13 +132,13 @@ def set_fourier_coefficients(beat_pattern,s):
             [ 0.016,-0.137, 0.098],
             [-0.065, 0.095,-0.054]
         ])
-        B_z = np.array([ 
+        B_z = np.array([
             [ 0.080,-0.298, 0.210],
             [-0.044, 0.513,-0.367],
             [-0.017, 0.004, 0.009],
             [ 0.052,-0.222, 0.120],
             [ 0.007, 0.035,-0.024],
-            [ 0.051,-0.128, 0.102] 
+            [ 0.051,-0.128, 0.102]
         ])
 
     sp = np.array([s,s**2,s**3])
@@ -151,10 +151,10 @@ def set_fourier_coefficients(beat_pattern,s):
     a_z = np.dot(A_z[1:,:],sp).T
     b_z = np.dot(B_z,sp).T
 
-    # The number of frequencies N0 corresponds to the size of the above 
+    # The number of frequencies N0 corresponds to the size of the above
     # matrices and is therefore not trivial to change.
-    N0 = 6 
+    N0 = 6
     n = np.linspace(1,N0,N0)
 
     return (a0_x,a_x,b_x,a0_z,a_z,b_z,n)
-    
+

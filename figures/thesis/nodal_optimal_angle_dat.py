@@ -46,7 +46,7 @@ cilia_config = {
     'T':T,
     'npoints':npoints,
     'ncilia_x':ncilia_x,
-    'ncilia_y':ncilia_y,    
+    'ncilia_y':ncilia_y,
     'nsteps':nsteps,
     'dt':dt,
     'beat_pattern':beat_pattern,
@@ -59,8 +59,8 @@ output = []
 
 for psi in [60,55,45]:
     for theta in range(0,90-psi,5):
-        cilia_config.update({'theta':theta*pi/180,'psi':psi*pi/180})        
-        netflow = {'u':0,'v':0}                    
+        cilia_config.update({'theta':theta*pi/180,'psi':psi*pi/180})
+        netflow = {'u':0,'v':0}
         t = 0
         for i in range(nsteps):
             print('step %d' % i)

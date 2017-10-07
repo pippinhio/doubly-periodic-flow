@@ -23,17 +23,17 @@ F['f1'] = [1.0,-1.0]
 F['f2'] = [0.0, 0.0]
 F['f3'] = [0.5,-0.5]
 
-#For more details about the input parameters see also the docstring in the 
-#module src.set_parameters.  Commenting out a line will use the default value. 
+#For more details about the input parameters see also the docstring in the
+#module src.set_parameters.  Commenting out a line will use the default value.
 #In particualar, set_parameters can be called without any input values.
-par = set_parameters( 
+par = set_parameters(
     domain=[0.0,1.0,0.0,1.0,0.0,1.0],#compuational domain: [x_a,x_b,y_a,y_b,z_a,z_b]
     dx=1/64,dy=1/64,dz=1/64,#grid spacing
 #    z_layers=None,#use for non-uniform grid in z
     images=True,#turn image system on and off
     epsilon=1/64,#regularization parameter
     method='Real',#choices are 'Real', 'FFT', 'Ewald'
-#    xi=4/64,#splitting parameter 
+#    xi=4/64,#splitting parameter
 #    r_cutoff=None,#cutoff radius for local piece in Ewald splitting
     ncopies_R=0 #number of terms in Stokeslet-double sum (per dimension)
     )

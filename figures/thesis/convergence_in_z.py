@@ -39,7 +39,7 @@ ax1.grid(True)
 for i in range(len(z0_vec)):
     z0 = z0_vec[i]
     X0['z'] = z0
-    
+
     for j in range(len(eps_vec)):
         eps = eps_vec[j]
         par = set_parameters(domain=[0.0,1.0,0.0,1.0,z0,2.0],dz=1/64,method='FFT',images=True,epsilon=eps)
@@ -53,7 +53,7 @@ for i in range(len(z0_vec)):
         w_inf = 0.0
         err = np.sqrt( (sol['u'] - u_inf)**2 + (sol['v'] - v_inf)**2 + (sol['w'] - w_inf)**2 )
         err_max = np.squeeze(np.apply_over_axes(np.amax, err, axes=[0,1]))
-        
+
         if i==0: # Add to legend only the first time
             ax1.semilogy(z,err_max,params.linestyles[j], linewidth=params.linewidth,label=r'$\varepsilon = %g$' % eps)
         else:
@@ -64,12 +64,12 @@ ax1.set_ylim([10.0**-4,10.0**1])
 ax1.set_xlabel(r'$z$',fontsize=params.fontsize_latex)
 ax1.set_ylabel(r'$\max_{x,y}( \mathbf{u} - \mathbf{u}_{\infty}) $',fontsize=params.fontsize)
 ax1.annotate(r'$z_0=%g$' % z0_vec[0], xy=(1.15, 0.0128), xytext=(0.7, 0.005),
-    arrowprops=dict(facecolor='black', shrink=0.05), 
+    arrowprops=dict(facecolor='black', shrink=0.05),
 #    horizontalalignment='left',
     fontsize = params.fontsize_latex
     )
 ax1.annotate(r'$z_0=%g$' % z0_vec[1], xy=(1.5, 0.07), xytext=(1.7, 0.18),
-    arrowprops=dict(facecolor='black', shrink=0.05), 
+    arrowprops=dict(facecolor='black', shrink=0.05),
     fontsize = params.fontsize_latex
     )
 ax1.legend(loc=1,prop={'size':params.fontsize_latex})
@@ -80,5 +80,5 @@ plt.savefig(params.image_path + 'convergence_in_z.pdf')
 plt.show()
 
 #import code
-#code.interact(local=locals())  
+#code.interact(local=locals())
 

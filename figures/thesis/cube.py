@@ -80,7 +80,7 @@ class Arrow3D(FancyArrowPatch):
 a = Arrow3D(
     [X0['x'][0],F['f1'][0]*0.75],
     [X0['y'][0],F['f2'][0]*0.75],
-    [X0['z'][0],F['f3'][0]*0.75], 
+    [X0['z'][0],F['f3'][0]*0.75],
     mutation_scale=25, lw=5, arrowstyle="-|>", color="red")
 ax.add_artist(a)
 
@@ -90,30 +90,30 @@ ax.add_artist(a)
 ax.plot_surface(
     np.array([[0.0,0.0],[0.0,0.0]]),
     np.array([[0.0,1.0],[0.0,1.0]]),
-    np.array([[0.0,0.0],[1.0,1.0]]),    
+    np.array([[0.0,0.0],[1.0,1.0]]),
     color = 'red',alpha = 0.3)
 
 ax.plot_surface(
     np.array([[1.0,1.0],[1.0,1.0]]),
     np.array([[0.0,1.0],[0.0,1.0]]),
-    np.array([[0.0,0.0],[1.0,1.0]]),    
+    np.array([[0.0,0.0],[1.0,1.0]]),
     color = 'red',alpha = 0.3)
 
 ax.plot_surface(
     np.array([[0.0,1.0],[0.0,1.0]]),
     np.array([[0.0,0.0],[0.0,0.0]]),
-    np.array([[0.0,0.0],[1.0,1.0]]),    
+    np.array([[0.0,0.0],[1.0,1.0]]),
     color = 'grey',alpha = 0.4)
 
 ax.plot_surface(
     np.array([[0.0,1.0],[0.0,1.0]]),
     np.array([[1.0,1.0],[1.0,1.0]]),
-    np.array([[0.0,0.0],[1.0,1.0]]),    
+    np.array([[0.0,0.0],[1.0,1.0]]),
     color = 'grey',alpha = 0.4)
 
 ax.plot_surface(
     np.array([[0.0,1.0],[0.0,1.0]]),
-    np.array([[0.0,0.0],[1.0,1.0]]),    
+    np.array([[0.0,0.0],[1.0,1.0]]),
     np.array([[0.0,0.0],[0.0,0.0]]),
     color = 'black',alpha = 1.0)
 

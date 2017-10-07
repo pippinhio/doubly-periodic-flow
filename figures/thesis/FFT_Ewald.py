@@ -57,7 +57,7 @@ for eps in epsilons:
 
     r2 = (sol_Ewald['u']-sol_FFT['u'])**2 + (sol_Ewald['v']-sol_FFT['v'])**2 + (sol_Ewald['w']-sol_FFT['w'])**2
     max_Ewald = max(np.max(sol_Ewald['u']),np.max(sol_Ewald['v']),np.max(sol_Ewald['w']))
-   
+
     diff[i] = np.max(np.sqrt(r2)/max_Ewald)
     i += 1
     print 'step %g from %g' % ((i),len(epsilons))
