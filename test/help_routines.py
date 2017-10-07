@@ -6,8 +6,8 @@ from numpy import sqrt
 from numpy import random as rd
 import time
 
-from core.data_structures import make_forces_struct
-from core.velocity.velocity_from_forces import velocity_from_forces
+from src.data_structures import make_forces_struct
+from src.velocity.velocity_from_forces import velocity_from_forces
 
 
 def run(X0,F,par,cores):

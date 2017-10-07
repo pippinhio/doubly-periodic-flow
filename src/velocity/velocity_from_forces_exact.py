@@ -9,9 +9,9 @@ from numpy import linalg as LA
 from multiprocessing import Pool
 
 from velocity_from_forces import velocity_from_forces
-from core.evaluation import map_into_main_domain
-from core.grid import make_grid
-from core.data_structures import make_forces_struct
+from src.evaluation import map_into_main_domain
+from src.grid import make_grid
+from src.data_structures import make_forces_struct
 
 def velocity_from_forces_exact(forces,X_eval,par,cores):
     #X_eval needs to be a vector. If X_eval is a grid, use velocity_from_forces

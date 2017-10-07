@@ -10,7 +10,7 @@ from numpy import cos as cos
 from numpy import tan as tan
 from numpy import pi as pi
 
-from core.evaluation import interp, map_into_main_domain
+from src.evaluation import interp, map_into_main_domain
 
 def parametrize(t,cilia_config,par):
     ncilia_x = cilia_config['ncilia_x']

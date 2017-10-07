@@ -15,8 +15,8 @@ import matplotlib.pyplot as plt
 if __name__ == '__main__' and __package__ is None:
     from os import sys, path
     sys.path.append(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
-from core.cilia.planar import parametrize
-from core.set_parameters import set_parameters
+from src.cilia.planar import parametrize
+from src.set_parameters import set_parameters
 
 import params
 

@@ -53,7 +53,7 @@ from __future__ import division
 
 import numpy as np
 
-from core.grid import make_grid
+from src.grid import make_grid
 
 
 def set_parameters( 
