@@ -172,8 +172,16 @@ def greens_function(blob_type,X0,par):
     # The term c = 0 is taken care of separetely later
     # and can be ignored for now.
     c2[0,0,:] = np.nan #float('NaN')
-    np.seterr(invalid='ignore')#this is a dirty trick to avoid that numpy
-    #prints a warning when it encounters nan. Should fix.
+
+    # TODO: The following is a dirty trick to avoid that numpy
+    # prints a warning when it encounters nan or in case of overflow.
+    # An overflow can happen in the argument of exp. However, such 
+    # exponentials are multiplied by terms that tend to 0 a lot faster
+    # than the exponential can grow. Mathematically everything is fine
+    # (use l'Hopital's rule for a limit of the form 0*infinity).
+    # But computationally we need to implement this better.
+    np.seterr(invalid='ignore')
+    np.seterr(over='ignore')
     c1 = sqrt(c2)
     c3 = c2*c1
 
