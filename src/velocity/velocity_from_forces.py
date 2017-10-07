@@ -95,11 +95,10 @@ def velocity_from_forces_serial(L):
             # The correcting plane is only implemented for the
             # Stokeslet. In particular, it is not implemented
             # for the method of images.
-            pass
-#            (plane_u,plane_v,plane_w) = compute_plane(forces['domain'],par)
-#            u += plane_u
-#            v += plane_v
-#            w += plane_w
+            (plane_u,plane_v,plane_w) = compute_plane(forces['domain'],par)
+            u += plane_u
+            v += plane_v
+            w += plane_w
 
     elif method == 'FFT':
         par.update({'splitting':False})
